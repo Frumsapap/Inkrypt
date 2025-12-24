@@ -12,7 +12,7 @@
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-[快速开始](#-快速开始) · [部署指南](DEPLOYMENT.md) · [使用说明](USAGE_ZH.md)
+[快速开始](#quick-start) · [部署指南](DEPLOYMENT.md) · [使用说明](USAGE_ZH.md)
 
 </div>
 
@@ -100,20 +100,62 @@
 
 ---
 
-## ☁️ 部署到 Cloudflare
+<a id="quick-start"></a>
 
-Inkrypt 专为 Cloudflare 生态设计，部署简单：
+## 🚀 快速开始
 
-| 步骤 | 操作 |
-|------|------|
-| **1** | 创建 D1 数据库并执行迁移 |
-| **2** | 从 `apps/worker/wrangler.toml.example` 生成 `apps/worker/wrangler.toml` 并配置（域名、RP_ID、ORIGIN） |
-| **3** | 设置 `SESSION_SECRET`（32+ 字节随机串） |
-| **4** | 部署 Worker：`npx wrangler deploy` |
-| **5** | 部署 Pages：绑定 Git 仓库，构建前端 |
-| **6** | 配置路由：`/api/*` 和 `/auth/*` 指向 Worker |
+推荐使用 **GitHub Actions 一键部署（无需本地 clone）**。
 
-👉 **完整指南**：[DEPLOYMENT.md](DEPLOYMENT.md)
+**你需要准备：**
+
+- `DOMAIN`：你的自定义域名（例如 `notes.example.com`，必须已托管到 Cloudflare）
+- GitHub 仓库 Secret：`CLOUDFLARE_API_TOKEN`
+
+### 1) 创建你的仓库
+
+在 GitHub 点击 **Use this template**（或 Fork）创建你的仓库。
+
+### 2) 配置 Secrets
+
+进入仓库 → Settings → Secrets and variables → Actions：
+
+- 新增 Repository secret：`CLOUDFLARE_API_TOKEN`
+- （可选）新增 Repository secret：`INKRYPT_SESSION_SECRET`（不填会自动生成）
+
+Token 最小权限建议：
+
+- Zone：`Zone:Read`、`DNS:Edit`、`Workers Routes:Edit`
+- Account：`Pages:Edit`、`Workers Scripts:Edit`、`D1:Edit`
+
+### 3) 运行部署工作流
+
+进入仓库 → Actions → `Deploy Inkrypt` → Run workflow：
+
+- 必填：`domain`
+- 选填：`rp_name`、`cors_origin`、`pages_project_name`、`worker_name`、`d1_name`、`d1_location`
+
+安全开关（默认谨慎）：
+
+- `force_takeover_dns=true`：允许覆盖已存在但不匹配的 DNS 记录
+- `force_takeover_routes=true`：允许接管已被其他 Worker 占用的 Routes
+- `wait_for_tls=false`：不等待 HTTPS 就绪（默认会等待）
+
+该工作流会自动完成：
+
+- Pages 项目创建与部署（Direct Upload）
+- Worker 部署（含 D1/DO）
+- D1 创建与 migrations
+- Pages 自定义域名绑定 + DNS CNAME 自动配置
+- Worker Routes 自动配置（`/api/*`、`/auth/*`、`/healthz*`）
+- Smoke test：访问 `https://<DOMAIN>/healthz`
+
+### 4) 部署完成后
+
+- 打开 `https://<DOMAIN>` 访问
+- 建议保持域名不变：`RP_ID/ORIGIN` 依赖域名，上线后改域名会导致已注册 Passkey 失效
+- 新部署默认使用 SQLite 后端的 Durable Objects（对免费账号更兼容）
+
+👉 **完整部署说明（含排错）**：[DEPLOYMENT.md](DEPLOYMENT.md)
 
 ---
 

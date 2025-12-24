@@ -50,6 +50,51 @@ https://notes.example.com/auth/*  → Worker（认证）
 
 ---
 
+## 一键部署（无需本地）
+
+本仓库内置 GitHub Actions 工作流：`.github/workflows/deploy.yml`，可在 GitHub 上一键完成：
+
+- Pages 项目创建与部署（Direct Upload）
+- Worker 部署（含 D1/DO）
+- D1 创建与 migrations
+- Pages 自定义域名绑定
+- DNS CNAME 自动配置
+- Worker Routes 自动配置（`/api/*`、`/auth/*`、`/healthz*`）
+
+### 你需要准备
+
+- `DOMAIN`：例如 `notes.example.com`（必须在 Cloudflare 托管的 Zone 内）
+- GitHub 仓库 Secret：`CLOUDFLARE_API_TOKEN`
+- （可选）GitHub 仓库 Secret：`INKRYPT_SESSION_SECRET`（不填则自动生成）
+
+### Token 权限建议（最小集）
+
+- Zone：`Zone:Read`、`DNS:Edit`、`Workers Routes:Edit`
+- Account：`Pages:Edit`、`Workers Scripts:Edit`、`D1:Edit`
+
+### Durable Objects（SQLite 后端）
+
+- 新部署默认使用 SQLite 后端的 Durable Objects（`new_sqlite_classes`），对免费账号/新账号更兼容
+- 已部署旧版本（`new_classes`）无需改动现有配置；保持你的 `wrangler.toml` 即可
+
+### 使用步骤
+
+1. 在 GitHub 点击 **Use this template** 创建你的仓库
+2. 进入仓库 → Settings → Secrets and variables → Actions：
+   - 新增 Repository secret：`CLOUDFLARE_API_TOKEN`
+   - （可选）新增 Repository secret：`INKRYPT_SESSION_SECRET`
+3. 进入仓库 → Actions → `Deploy Inkrypt` → Run workflow：
+   - 填写必填项：`domain`
+   - 其余选填（默认即可）
+
+### 高级参数（避免“一键事故”）
+
+- `force_takeover_dns=true`：当 `DOMAIN` 已存在 DNS 记录但不匹配时，允许覆盖
+- `force_takeover_routes=true`：当目标路由已绑定其他 Worker 时，允许接管
+- `wait_for_tls=false`：不等待证书/HTTPS 可用（默认会等待）
+
+---
+
 ## 步骤 1：拉代码
 
 ```bash
@@ -63,19 +108,7 @@ npx wrangler login  # 登录 Cloudflare
 
 ## 步骤 2：配置后端
 
-先从模板生成本地配置（仓库内提供 `apps/worker/wrangler.toml.example`）：
-
-```bash
-cp apps/worker/wrangler.toml.example apps/worker/wrangler.toml
-```
-
-Windows PowerShell：
-
-```powershell
-Copy-Item apps/worker/wrangler.toml.example apps/worker/wrangler.toml
-```
-
-然后编辑 `apps/worker/wrangler.toml`，修改 `[vars]` 部分：
+编辑 `apps/worker/wrangler.toml`，修改 `[vars]` 部分：
 
 ```toml
 RP_NAME = "Inkrypt"

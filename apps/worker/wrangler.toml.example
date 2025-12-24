@@ -24,4 +24,4 @@ class_name = "RateLimiterDO"
 
 [[migrations]]
 tag = "v1"
-new_classes = ["RateLimiterDO"]
+new_sqlite_classes = ["RateLimiterDO"]
